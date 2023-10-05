@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class LeaveTorch : MonoBehaviour
 {
-    static int state = 0;
+    int state = 0;
 
     void Update()
     {
-        state++;
-        state %= 3;
-
         if (Input.GetKeyDown(KeyCode.Q))
         {
+            state++;
+            state %= 2;
             EventBus.Publish<TorchStateEvent>(new TorchStateEvent(state));
         }
     }
