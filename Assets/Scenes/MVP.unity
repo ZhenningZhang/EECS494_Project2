@@ -431,8 +431,9 @@ GameObject:
   - component: {fileID: 1128294286}
   - component: {fileID: 1128294285}
   - component: {fileID: 1128294289}
+  - component: {fileID: 1128294290}
   m_Layer: 0
-  m_Name: Weapon
+  m_Name: Torch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -539,6 +540,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapon: {fileID: 1128294288}
   defaultDistance: 10
+--- !u!114 &1128294290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1128294284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d609428ee08fb6e4c829217a4b55e3b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1844082433
 GameObject:
   m_ObjectHideFlags: 0
@@ -552,6 +565,7 @@ GameObject:
   - component: {fileID: 1844082435}
   - component: {fileID: 1844082434}
   - component: {fileID: 1844082438}
+  - component: {fileID: 1844082439}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -660,6 +674,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 10
+--- !u!114 &1844082439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1844082433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59ce1c0fdb678b248b9a0ab26b0b39bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2038044789
 GameObject:
   m_ObjectHideFlags: 0
