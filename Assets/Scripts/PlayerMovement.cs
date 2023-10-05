@@ -5,8 +5,15 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float movementSpeed = 10;
+    public float jumpForce = 200;
 
-    // Update is called once per frame
+    Rigidbody rb;
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
+
     void Update()
     {
         float horizontal = Input.GetAxis("Horizontal") * movementSpeed * Time.deltaTime;
@@ -14,5 +21,10 @@ public class PlayerMovement : MonoBehaviour
 
         float vertical = Input.GetAxis("Vertical") * movementSpeed * Time.deltaTime;
         transform.Translate(0, 0, vertical);
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            rb.AddForce(Vector3.up * jumpForce);
+        }
     }
 }

@@ -45,7 +45,8 @@ public class WeaponAim : MonoBehaviour
 
     void OnStateChange(TorchStateEvent state)
     {
-        if (state.torchState == 0) { followCursor = false; }
+        if (state.torchState == 2) { followCursor = false; }
+        if (state.torchState == 0) { followCursor = true;  }
     }
 
     private void OnDestroy()

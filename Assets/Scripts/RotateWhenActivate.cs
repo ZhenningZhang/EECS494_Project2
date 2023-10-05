@@ -16,7 +16,7 @@ public class RotateWhenActivate : MonoBehaviour
     void OnActivate(ActivateEvent ae)
     {
         if (ae.cubeNr == activationNr)
-            transform.Rotate(new Vector3(0, 0, 80 * Time.deltaTime));
+            transform.Rotate(new Vector3(0, 80 * Time.deltaTime, 0));
     }
 
     private void OnDestroy()

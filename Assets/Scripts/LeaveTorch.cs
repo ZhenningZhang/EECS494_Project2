@@ -11,7 +11,7 @@ public class LeaveTorch : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q))
         {
             state++;
-            state %= 2;
+            state %= 3;
             EventBus.Publish<TorchStateEvent>(new TorchStateEvent(state));
         }
     }
