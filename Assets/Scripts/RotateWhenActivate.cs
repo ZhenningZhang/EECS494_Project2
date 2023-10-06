@@ -24,15 +24,19 @@ public class RotateWhenActivate : MonoBehaviour
 
     void Update()
     {
-        if (transform.eulerAngles.y - initAngle >= maxAngle)
+        if (completeRotation) { return; }
+
+        if (Mathf.Abs(transform.eulerAngles.y - initAngle) >= maxAngle)
+        {
             completeRotation = true;
+        }
 
         if (isRotating)
         {
             transform.Rotate(new Vector3(0, 80 * Time.deltaTime, 0));
         }
 
-        if (!completeRotation && !isRotating)
+        if (!isRotating)
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5.0f);
         }
