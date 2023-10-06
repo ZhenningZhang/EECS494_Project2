@@ -7,14 +7,19 @@ public class SendMsgWhenActivated : MonoBehaviour
     [SerializeField]
     int cubeNr = -1;
 
-    public void SendMessage()
+    public void SendMessage(bool activate)
     {
-        EventBus.Publish<ActivateEvent>(new ActivateEvent(cubeNr));
+        EventBus.Publish<ActivateEvent>(new ActivateEvent(cubeNr, activate));
     }
 }
 
 public class ActivateEvent
 {
     public int cubeNr = -1;
-    public ActivateEvent(int cubeNr) { this.cubeNr = cubeNr; }
+    public bool activate = false;
+    public ActivateEvent(int cubeNr, bool activate) 
+    { 
+        this.cubeNr = cubeNr;
+        this.activate = activate;
+    }
 }

@@ -38,22 +38,25 @@ public class RayDetection : MonoBehaviour
                 // Check if the ray hits the target directly without any obstacle
                 if (hit.collider.gameObject == target)
                 {
-                    Debug.Log(target.name + " is illuminated!");
-                    target.GetComponent<SendMsgWhenActivated>().SendMessage();
+                    //Debug.Log(target.name + " is illuminated!");
+                    target.GetComponent<SendMsgWhenActivated>().SendMessage(true);
                 }
                 else
                 {
-                    Debug.Log(target.name + " is NOT illuminated (obstructed)!");
+                    //Debug.Log(target.name + " is NOT illuminated (obstructed)!");
+                    target.GetComponent<SendMsgWhenActivated>().SendMessage(false);
                 }
             }
             else
             {
-                Debug.Log(target.name + " is NOT illuminated (out of range or angle)!");
+                //Debug.Log(target.name + " is NOT illuminated (out of range or angle)!");
+                target.GetComponent<SendMsgWhenActivated>().SendMessage(false);
             }
         }
         else
         {
-            Debug.Log(target.name + " is NOT illuminated (out of range or angle)!");
+            //Debug.Log(target.name + " is NOT illuminated (out of range or angle)!");
+            target.GetComponent<SendMsgWhenActivated>().SendMessage(false);
         }
     }
 }
