@@ -8,6 +8,8 @@ public class RotateWhenActivate : MonoBehaviour
     int activationNr = -1;
     [SerializeField]
     float maxAngle = 90.0f;
+    [SerializeField]
+    bool neverStayOpen = false;
 
     bool isRotating = false;
     bool completeRotation = false;
@@ -26,12 +28,14 @@ public class RotateWhenActivate : MonoBehaviour
     {
         if (completeRotation) { return; }
 
-        if (Mathf.Abs(transform.eulerAngles.y - initAngle) >= maxAngle)
+        bool reachMax = Mathf.Abs(transform.eulerAngles.y - initAngle) >= maxAngle;
+
+        if (reachMax && !neverStayOpen)
         {
             completeRotation = true;
         }
 
-        if (isRotating)
+        if (!reachMax && isRotating)
         {
             transform.Rotate(new Vector3(0, 80 * Time.deltaTime, 0));
         }
