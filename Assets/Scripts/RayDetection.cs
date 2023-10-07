@@ -7,7 +7,7 @@ public class RayDetection : MonoBehaviour
     public Light spotlight; // Reference to the spotlight
     private List<GameObject> targets; // List of potential target GameObjects
 
-    void Start()
+    void Awake()
     {
         // Find all GameObjects with the "Illuminable" tag
         targets = new List<GameObject>(GameObject.FindGameObjectsWithTag("Illuminable"));
