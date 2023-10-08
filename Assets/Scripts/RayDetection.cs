@@ -44,19 +44,19 @@ public class RayDetection : MonoBehaviour
                 else
                 {
                     //Debug.Log(target.name + " is NOT illuminated (obstructed)!");
-                    target.GetComponent<SendMsgWhenActivated>().SendMessage(false);
+                    //target.GetComponent<SendMsgWhenActivated>().SendMessage(false);
                 }
             }
             else
             {
                 //Debug.Log(target.name + " is NOT illuminated (out of range or angle)!");
-                target.GetComponent<SendMsgWhenActivated>().SendMessage(false);
+                //target.GetComponent<SendMsgWhenActivated>().SendMessage(false);
             }
         }
         else
         {
             //Debug.Log(target.name + " is NOT illuminated (out of range or angle)!");
-            target.GetComponent<SendMsgWhenActivated>().SendMessage(false);
+            //target.GetComponent<SendMsgWhenActivated>().SendMessage(false);
         }
     }
 }

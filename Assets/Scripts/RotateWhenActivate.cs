@@ -17,16 +17,28 @@ public class RotateWhenActivate : MonoBehaviour
     Quaternion targetRotation;
     Subscription<ActivateEvent> activate_event_subscription;
 
+    [SerializeField]
+    float activationTimeout = 0.1f;
+    float lastActivationTime;
+
     void Start()
     {
         activate_event_subscription = EventBus.Subscribe<ActivateEvent>(OnActivate);
         targetRotation = this.transform.rotation;
         initAngle = this.transform.eulerAngles.y;
+
+        lastActivationTime = -activationTimeout;
     }
 
     void Update()
     {
         if (completeRotation) { return; }
+
+        if (Time.time - lastActivationTime > activationTimeout)
+        {
+            // Stop rotating if the timeout period has elapsed since the last activation
+            isRotating = false;
+        }
 
         bool reachMax = Mathf.Abs(transform.eulerAngles.y - initAngle) >= maxAngle;
 
@@ -52,7 +64,10 @@ public class RotateWhenActivate : MonoBehaviour
 
         if (ae.cubeNr == activationNr)
             if (ae.activate == true)
+            {
                 isRotating = true;
+                lastActivationTime = Time.time;
+            }
             else
                 isRotating = false;
     }
