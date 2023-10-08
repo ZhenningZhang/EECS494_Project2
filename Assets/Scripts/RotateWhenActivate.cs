@@ -11,9 +11,16 @@ public class RotateWhenActivate : MonoBehaviour
     [SerializeField]
     bool neverStayOpen = false;
 
+    [SerializeField]
+    bool rotateX = false;
+    [SerializeField]
+    bool rotateY = true;
+    [SerializeField]
+    bool rotateZ = false;
+
     bool isRotating = false;
     bool completeRotation = false;
-    float initAngle;
+    Vector3 initAngle;
     Quaternion targetRotation;
     Subscription<ActivateEvent> activate_event_subscription;
 
@@ -25,7 +32,7 @@ public class RotateWhenActivate : MonoBehaviour
     {
         activate_event_subscription = EventBus.Subscribe<ActivateEvent>(OnActivate);
         targetRotation = this.transform.rotation;
-        initAngle = this.transform.eulerAngles.y;
+        initAngle = this.transform.eulerAngles;
 
         lastActivationTime = -activationTimeout;
     }
@@ -40,7 +47,14 @@ public class RotateWhenActivate : MonoBehaviour
             isRotating = false;
         }
 
-        bool reachMax = Mathf.Abs(transform.eulerAngles.y - initAngle) >= maxAngle;
+        bool reachMax = false;
+
+        if (rotateY)
+            reachMax = Mathf.Abs(transform.eulerAngles.y - initAngle.y) >= maxAngle;
+        if (rotateZ)
+            reachMax = Mathf.Abs(transform.eulerAngles.z - initAngle.z) >= maxAngle;
+        if (rotateX)
+            reachMax = Mathf.Abs(transform.eulerAngles.x - initAngle.x) >= maxAngle;
 
         if (reachMax && !neverStayOpen)
         {
@@ -49,7 +63,12 @@ public class RotateWhenActivate : MonoBehaviour
 
         if (!reachMax && isRotating)
         {
-            transform.Rotate(new Vector3(0, 80 * Time.deltaTime, 0));
+            if (rotateY)
+                transform.Rotate(new Vector3(0, 80 * Time.deltaTime, 0));
+            if (rotateZ)
+                transform.Rotate(new Vector3(0, 0, 80 * Time.deltaTime));
+            if (rotateX)
+                transform.Rotate(new Vector3(80 * Time.deltaTime, 0, 0));
         }
 
         if (!isRotating)
