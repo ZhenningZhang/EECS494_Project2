@@ -26,4 +26,9 @@ public class AppearWhenCleared : MonoBehaviour
         text.text = "Level " + levelClearedEvent.level + " Cleared";
         text.enabled = true;
     }
+
+    void OnDestroy()
+    {
+        EventBus.Unsubscribe(levelClearedEvent);
+    }
 }

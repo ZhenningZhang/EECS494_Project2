@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SendMsgCleared : MonoBehaviour
 {
@@ -14,9 +15,23 @@ public class SendMsgCleared : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             EventBus.Publish<LevelClearedEvent>(new LevelClearedEvent(level));
+            StartCoroutine(GoNextLevel(level + 1));
         }
     }
+
+    IEnumerator GoNextLevel(int level)
+    {
+        yield return new WaitForSeconds(1.0f);
+        string sceneName;
+        if (level <= 3)
+            sceneName = "Scenes/Level " + level;
+        else
+            sceneName = "Scenes/Menu";
+        SceneManager.LoadScene(sceneName);
+
+    }
 }
+
 
 public class LevelClearedEvent
 {
