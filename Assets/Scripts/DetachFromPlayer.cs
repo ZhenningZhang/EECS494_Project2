@@ -6,11 +6,27 @@ public class DetachFromPlayer : MonoBehaviour
 {
     Subscription<TorchStateEvent> torch_state_event_subscription;
     Vector3 defaultPosition = Vector3.zero;
+    Vector3 defaultScale = Vector3.one;
+    Vector3 relativePosition = Vector3.zero;
+    GameObject player;
+
+    bool moveWithPlayer = false;
 
     void Start()
     {
         torch_state_event_subscription = EventBus.Subscribe<TorchStateEvent>(OnStateChange);
+
         defaultPosition = transform.localPosition;
+        defaultScale = transform.localScale;
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
+
+    void Update()
+    {
+        if (moveWithPlayer)
+        {
+            transform.position = Vector3.Lerp(transform.position, player.transform.position + relativePosition,Time.deltaTime * 5.0f);
+        }       
     }
 
     void OnStateChange(TorchStateEvent state)
@@ -19,12 +35,24 @@ public class DetachFromPlayer : MonoBehaviour
             transform.SetParent(null);
         }
 
+        if (state.torchState == 2)
+        {
+            relativePosition = transform.position - player.transform.position;
+            moveWithPlayer = true;
+        }
+
         if (state.torchState == 0)
         {
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
-            transform.SetParent(player.transform);
-            transform.localPosition = defaultPosition;
+            moveWithPlayer = false;
+            SetBack();
         }
+    }
+
+    private void SetBack()
+    {
+        transform.SetParent(player.transform);
+        transform.localPosition = defaultPosition;
+        transform.localScale = defaultScale;
     }
 
     private void OnDestroy()

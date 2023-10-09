@@ -22,6 +22,22 @@ public class WeaponAim : MonoBehaviour
     {
         if (!followCursor) { return; }
 
+        RotateToCursor();
+    }
+
+    void OnStateChange(TorchStateEvent state)
+    {
+        if (state.torchState == 2) { followCursor = false; }
+        if (state.torchState == 0) { followCursor = true;  }
+    }
+
+    private void OnDestroy()
+    {
+        EventBus.Unsubscribe(torch_state_event_subscription);
+    }
+
+    private void RotateToCursor()
+    {
         Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
@@ -41,16 +57,5 @@ public class WeaponAim : MonoBehaviour
         Vector3 directionToTarget = targetPosition - weapon.position;
         Quaternion targetRotation = Quaternion.LookRotation(directionToTarget);
         weapon.rotation = Quaternion.Slerp(weapon.rotation, targetRotation, Time.deltaTime * 5.0f);
-    }
-
-    void OnStateChange(TorchStateEvent state)
-    {
-        if (state.torchState == 2) { followCursor = false; }
-        if (state.torchState == 0) { followCursor = true;  }
-    }
-
-    private void OnDestroy()
-    {
-        EventBus.Unsubscribe(torch_state_event_subscription);
     }
 }
