@@ -16,12 +16,6 @@ public class AppearWhenActivated : MonoBehaviour
         activate_event_subscription = EventBus.Subscribe<ActivateEvent>(OnActivate);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void OnActivate(ActivateEvent ae)
     {
         if (ae.cubeNr == activationNr)

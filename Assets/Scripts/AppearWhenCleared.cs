@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+// Actually can just use AppearWhenActivated
+
 public class AppearWhenCleared : MonoBehaviour
 {
     Subscription<LevelClearedEvent> levelClearedEvent;
