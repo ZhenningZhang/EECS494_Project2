@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; } // Don't know what this mean
-    bool[] clearedLevels = new bool[] { false, false, false, false };
+    bool[] clearedLevels = new bool[] { true, false, false, false };
     bool need_change_button_color = true;
 
     void Awake()
@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
     {
         if (need_change_button_color && SceneManager.GetActiveScene().name == "Menu")
         {
-            for (int i = 1; i < clearedLevels.Length; i++)
+            for (int i = 0; i < clearedLevels.Length; i++)
             {
                 if (clearedLevels[i])
                 {

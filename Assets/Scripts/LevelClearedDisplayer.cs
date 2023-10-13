@@ -17,6 +17,7 @@ public class LevelClearedDisplayer : MonoBehaviour
     {
         button = GetComponent<Button>();
         levelClearedEvent = EventBus.Subscribe<LevelClearedEvent>(Cleared);
+        button.interactable = false;
     }
 
     void Cleared(LevelClearedEvent levelClearedEvent)
@@ -27,6 +28,9 @@ public class LevelClearedDisplayer : MonoBehaviour
             colors.normalColor = new Color32(0x3C, 0xB3, 0x71, 0xFF);
             button.colors = colors;
         }
+
+        if (levelClearedEvent.level == levelNr - 1)
+            button.interactable = true;
     }
 
     void OnDestroy()
