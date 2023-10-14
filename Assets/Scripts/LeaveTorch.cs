@@ -1,17 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class LeaveTorch : MonoBehaviour
 {
     int state = 0;
 
+    [SerializeField]
+    int[] disabledModes;
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            state++;
-            state %= 3;
+            do
+            {
+                state++;
+                state %= 3;
+            }
+            while (disabledModes != null && disabledModes.Contains(state));
+
             EventBus.Publish<TorchStateEvent>(new TorchStateEvent(state));
         }
     }
