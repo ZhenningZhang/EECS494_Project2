@@ -23,12 +23,19 @@ public class SendMsgCleared : MonoBehaviour
     {
         yield return new WaitForSeconds(1.0f);
         string sceneName;
-        if (level <= 3)
-            sceneName = "Scenes/Level " + level;
-        else
+        sceneName = "Scenes/Level " + level;
+        if (!DoesSceneExist(sceneName))
+        {
             sceneName = "Scenes/Menu";
+        }
         SceneManager.LoadScene(sceneName);
+    }
 
+    public bool DoesSceneExist(string sceneName)
+    {
+        string scenePath = "Assets/" + sceneName + ".unity";
+
+        return SceneUtility.GetBuildIndexByScenePath(scenePath) != -1;
     }
 }
 
