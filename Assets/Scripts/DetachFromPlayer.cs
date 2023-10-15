@@ -26,7 +26,9 @@ public class DetachFromPlayer : MonoBehaviour
         if (moveWithPlayer)
         {
             transform.position = Vector3.Lerp(transform.position, player.transform.position + relativePosition,Time.deltaTime * 5.0f);
-        }       
+            //transform.rotation = Quaternion.Slerp(transform.rotation, player.transform.rotation, Time.deltaTime * 5.0f);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Camera.main.transform.rotation, Time.deltaTime * 5.0f);
+        }
     }
 
     void OnStateChange(TorchStateEvent state)
