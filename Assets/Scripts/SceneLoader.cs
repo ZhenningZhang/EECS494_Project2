@@ -26,20 +26,22 @@ public class SceneLoader : MonoBehaviour
         EventBus.Subscribe<LevelClearedEvent>(LevelCleared);
     }
 
-    public void LoadScene(string sceneName)
-    {
-        // This is just for the "Nothing"
-        SceneManager.LoadScene(sceneName);
-    }
-
     void OnButtonClicked(ClickedEvent clickedEvent)
     {
+        // This is for click in Menu
+        if (clickedEvent.button == 0)
+        {
+            SceneManager.LoadScene("Scenes/MVP");
+            return;
+        }
+
         string sceneName = "Scenes/Level " + clickedEvent.button;
         SceneManager.LoadScene(sceneName);
     }
 
     void LevelCleared(LevelClearedEvent levelClearedEvent)
     {
+        // This is for level cleared in the game
         StartCoroutine(GoNextLevel(levelClearedEvent.level + 1));
     }
 

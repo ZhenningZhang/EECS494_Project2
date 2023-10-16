@@ -1297,6 +1297,7 @@ GameObject:
   - component: {fileID: 1359483310}
   - component: {fileID: 1359483309}
   - component: {fileID: 1359483308}
+  - component: {fileID: 1359483311}
   m_Layer: 5
   m_Name: Nothing
   m_TagString: Untagged
@@ -1367,7 +1368,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1359483309}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1359483311}
+        m_TargetAssemblyTypeName: SendMsgWhenClicked, Assembly-CSharp
+        m_MethodName: SendClickedMsg
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1359483309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1406,6 +1419,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1359483305}
   m_CullTransparentMesh: 1
+--- !u!114 &1359483311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1359483305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f56615f38077134b80b884c06f8a573, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1387021299
 GameObject:
   m_ObjectHideFlags: 0
@@ -2703,7 +2728,7 @@ SceneRoots:
   - {fileID: 1268465081}
   - {fileID: 1387021303}
   - {fileID: 416898506}
+  - {fileID: 1748326026}
   - {fileID: 2132914588}
   - {fileID: 969672563}
   - {fileID: 1924304311}
-  - {fileID: 1748326026}
