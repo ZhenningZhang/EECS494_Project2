@@ -356,10 +356,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '!!!!'
+  m_text: (Here?)
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b9c264ee33bb84340b02d3192e12d98b, type: 2}
+  m_sharedMaterial: {fileID: 3318793439344208591, guid: b9c264ee33bb84340b02d3192e12d98b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -566,10 +566,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '!!!!'
+  m_text: (Here?)
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b9c264ee33bb84340b02d3192e12d98b, type: 2}
+  m_sharedMaterial: {fileID: 3318793439344208591, guid: b9c264ee33bb84340b02d3192e12d98b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1197,7 +1197,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05092553884756b478561549a48a6530, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 500
   playerBody: {fileID: 1844082437}
 --- !u!1001 &1064419900
 PrefabInstance:
@@ -1340,8 +1339,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Test Msg
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b9c264ee33bb84340b02d3192e12d98b, type: 2}
+  m_sharedMaterial: {fileID: 3318793439344208591, guid: b9c264ee33bb84340b02d3192e12d98b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2333,8 +2332,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Level Cleared!!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b9c264ee33bb84340b02d3192e12d98b, type: 2}
+  m_sharedMaterial: {fileID: 3318793439344208591, guid: b9c264ee33bb84340b02d3192e12d98b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class FPSCameraController : MonoBehaviour
 {
-    public float mouseSensitivity = 100f;
     public Transform playerBody;
-    private float xRotation = 0f;
+    float xRotation = 0f;
+    float mouseSensitivity = 100f;
 
     void Start()
     {
