@@ -813,6 +813,9 @@ MonoBehaviour:
   esc_sound: {fileID: 8300000, guid: ec3da5dee07d479468c18022bf44a016, type: 3}
   on_sound: {fileID: 8300000, guid: 86e66e4c445d327448514dd0b280870d, type: 3}
   off_sound: {fileID: 8300000, guid: 876937472bbceac44939788ea377ea92, type: 3}
+  cleared_sound: {fileID: 8300000, guid: d0018f5af466914409534c3fc1f3977c, type: 3}
+  torch_sound: {fileID: 8300000, guid: 19b81d2ec1bbb104ca7d3d16b7fdbdd4, type: 3}
+  open_sound: {fileID: 8300000, guid: b56daad200e872d49a6e2326cd62d850, type: 3}
 --- !u!4 &969672563
 Transform:
   m_ObjectHideFlags: 0

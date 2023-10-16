@@ -11,6 +11,10 @@ public class SoundEffectsManager : MonoBehaviour
     [SerializeField] AudioClip esc_sound;
     [SerializeField] AudioClip on_sound;
     [SerializeField] AudioClip off_sound;
+    [SerializeField] AudioClip cleared_sound;
+    [SerializeField] AudioClip torch_sound;
+    [SerializeField] AudioClip open_sound;
+
 
     AudioSource audioSource;
 
@@ -32,6 +36,9 @@ public class SoundEffectsManager : MonoBehaviour
         EventBus.Subscribe<ClickedEvent>(OnButtonClicked);
         EventBus.Subscribe<EscEvent>(OnEsc);
         EventBus.Subscribe<TouchEvent>(OnTouch);
+        EventBus.Subscribe<LevelClearedEvent>(OnCleared);
+        EventBus.Subscribe<TorchStateEvent>(OnTorchStateChange);
+        EventBus.Subscribe<CompleteRotationEvent>(OnCompleteRotation);
         audioSource = GetComponent<AudioSource>();
     }
 
@@ -55,5 +62,20 @@ public class SoundEffectsManager : MonoBehaviour
         {
             audioSource.PlayOneShot(off_sound);
         }
+    }
+
+    void OnCleared(LevelClearedEvent levelClearedEvent)
+    {
+        audioSource.PlayOneShot(cleared_sound);
+    }
+
+    void OnTorchStateChange(TorchStateEvent torchStateEvent)
+    {
+        audioSource.PlayOneShot(torch_sound);
+    }
+
+    void OnCompleteRotation(CompleteRotationEvent onCompleteRotationEvent)
+    {
+        audioSource.PlayOneShot(open_sound);
     }
 }

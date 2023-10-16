@@ -47,7 +47,7 @@ public class SceneLoader : MonoBehaviour
 
     IEnumerator GoNextLevel(int level)
     {
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(2.0f);
         string sceneName;
         sceneName = "Scenes/Level " + level;
         if (!DoesSceneExist(sceneName))

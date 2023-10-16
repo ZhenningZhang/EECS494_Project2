@@ -59,6 +59,7 @@ public class RotateWhenActivate : MonoBehaviour
         if (reachMax && !neverStayOpen)
         {
             completeRotation = true;
+            EventBus.Publish<CompleteRotationEvent>(new CompleteRotationEvent());
         }
 
         if (!reachMax && isRotating)
@@ -95,4 +96,9 @@ public class RotateWhenActivate : MonoBehaviour
     {
         EventBus.Unsubscribe(activate_event_subscription);
     }
+}
+
+public class CompleteRotationEvent
+{
+    public CompleteRotationEvent() { }
 }
