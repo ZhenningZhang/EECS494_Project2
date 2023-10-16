@@ -15,7 +15,7 @@ public class SendMsgCleared : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             EventBus.Publish<LevelClearedEvent>(new LevelClearedEvent(level));
-            StartCoroutine(GoNextLevel(level + 1));
+            //StartCoroutine(GoNextLevel(level + 1));
         }
     }
 

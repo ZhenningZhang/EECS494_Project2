@@ -44,8 +44,7 @@ public class GameManager : MonoBehaviour
             {
                 if (clearedLevels[i])
                 {
-                    // I should have create a new event class for clearity
-                    EventBus.Publish<LevelClearedEvent>(new LevelClearedEvent(i));
+                    EventBus.Publish<LevelClearedEventMenu>(new LevelClearedEventMenu(i));
                 }
             }
             need_change_button_color = false;
@@ -54,5 +53,14 @@ public class GameManager : MonoBehaviour
         {
             need_change_button_color = true;
         }
+    }
+}
+
+public class LevelClearedEventMenu
+{
+    public int level;
+    public LevelClearedEventMenu(int level)
+    {
+        this.level = level;
     }
 }

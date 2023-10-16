@@ -4,17 +4,9 @@ using UnityEngine;
 
 public class SendMsgWhenClicked : MonoBehaviour
 {
+    // See ClickedEvents.cs for classes
     public void SendClickedMsg(int buttonNr)
     {
         EventBus.Publish<ClickedEvent>(new ClickedEvent(buttonNr));
-    }
-}
-
-public class ClickedEvent
-{
-    public int button;
-    public ClickedEvent(int button)
-    {
-        this.button = button;
     }
 }

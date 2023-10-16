@@ -9,18 +9,18 @@ public class LevelClearedDisplayer : MonoBehaviour
     [SerializeField]
     int levelNr = -1;
 
-    Subscription<LevelClearedEvent> levelClearedEvent;
+    Subscription<LevelClearedEventMenu> levelClearedEvent;
     Button button;
 
     // Start is called before the first frame update
     void Start()
     {
         button = GetComponent<Button>();
-        levelClearedEvent = EventBus.Subscribe<LevelClearedEvent>(Cleared);
+        levelClearedEvent = EventBus.Subscribe<LevelClearedEventMenu>(Cleared);
         button.interactable = false;
     }
 
-    void Cleared(LevelClearedEvent levelClearedEvent)
+    void Cleared(LevelClearedEventMenu levelClearedEvent)
     {
         if (levelClearedEvent.level == levelNr)
         {
