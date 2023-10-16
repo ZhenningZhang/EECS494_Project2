@@ -9,7 +9,14 @@ public class BackToMenu : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
+            EventBus.Publish<EscEvent>(new EscEvent());
             SceneManager.LoadScene("Scenes/Menu");
         }
     }
 }
+
+public class EscEvent
+{
+    public EscEvent(){}
+}
+
