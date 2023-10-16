@@ -811,6 +811,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button_sound: {fileID: 8300000, guid: fd2248030a439a14cbbc814cd98262fd, type: 3}
   esc_sound: {fileID: 8300000, guid: ec3da5dee07d479468c18022bf44a016, type: 3}
+  on_sound: {fileID: 8300000, guid: 86e66e4c445d327448514dd0b280870d, type: 3}
+  off_sound: {fileID: 8300000, guid: 876937472bbceac44939788ea377ea92, type: 3}
 --- !u!4 &969672563
 Transform:
   m_ObjectHideFlags: 0

@@ -8,15 +8,13 @@ public class AppearWhenActivated : MonoBehaviour
     [SerializeField]
     int activationNr = -1;
 
-    Subscription<ActivateEvent> activate_event_subscription;
-
     void Start()
     {
         gameObject.SetActive(false);
-        activate_event_subscription = EventBus.Subscribe<ActivateEvent>(OnActivate);
+        EventBus.Subscribe<TouchEvent>(OnActivate);
     }
 
-    void OnActivate(ActivateEvent ae)
+    void OnActivate(TouchEvent ae)
     {
         if (ae.cubeNr == activationNr)
             if (ae.activate == true)

@@ -14,7 +14,7 @@ public class SendMsgWhenTouch : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            EventBus.Publish<ActivateEvent>(new ActivateEvent(cubeNr, true));
+            EventBus.Publish<TouchEvent>(new TouchEvent(cubeNr, true));
         }
     }
 
@@ -22,7 +22,7 @@ public class SendMsgWhenTouch : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            EventBus.Publish<ActivateEvent>(new ActivateEvent(cubeNr, false));
+            EventBus.Publish<TouchEvent>(new TouchEvent(cubeNr, false));
         }
     }
 
@@ -30,7 +30,7 @@ public class SendMsgWhenTouch : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            EventBus.Publish<ActivateEvent>(new ActivateEvent(cubeNr, true));
+            EventBus.Publish<TouchEvent>(new TouchEvent(cubeNr, true));
         }
     }
 
@@ -38,7 +38,18 @@ public class SendMsgWhenTouch : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            EventBus.Publish<ActivateEvent>(new ActivateEvent(cubeNr, false));
+            EventBus.Publish<TouchEvent>(new TouchEvent(cubeNr, false));
         }
+    }
+}
+
+public class TouchEvent
+{
+    public int cubeNr = -1;
+    public bool activate = false;
+    public TouchEvent(int cubeNr, bool activate)
+    {
+        this.cubeNr = cubeNr;
+        this.activate = activate;
     }
 }
